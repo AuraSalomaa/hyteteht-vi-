@@ -1,0 +1,99 @@
+#red {
+    background-color: rgb(128, 124, 124);
+    font-size: 20px;
+    text-align: center;
+    padding-top: 12px;
+    
+  }
+  #green {
+    background-color: rgb(128, 124, 124);
+    font-size: 20px;
+    text-align: center;
+    padding-top: 12px;
+  }
+  #blue {
+    background-color: rgb(128, 124, 124);
+    font-size: 20px;
+    text-align: center;
+    padding-top: 12px;
+  }
+  #yellow {
+    background-color: rgb(128, 124, 124);
+    font-size: 20px;
+    text-align: center;
+    padding-top: 12px;
+  }
+
+
+  .clear {
+    clear: both;
+  }
+
+  .info{
+    color:brown
+  }
+
+  p{
+    color:whitesmoke;
+
+  }
+ 
+main {
+    background-color: rgb(114, 114, 114);
+    height: 500px;
+    padding: 10px;
+    border: 3px solid rgb(121, 119, 119);
+    width: 1000px;
+    text-align:left;
+    margin:auto;
+    margin-top: 80px;
+    padding-left: 50px;
+    padding-right: 60px;
+}
+
+.box {
+    height: 50px;
+    width: 25%;
+    border: 2px solid rgb(128, 129, 129);
+    color: whitesmoke;
+    float: left;
+}
+
+*{
+    box-sizing: border-box;
+    
+}
+body{
+    margin: 0px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+footer{
+    background-color: rgb(53, 52, 59);
+    height: 70px;
+    margin-top: 50px;
+    padding-top: 25px;
+    text-align: center;
+    border: 700px;
+    
+}
+#orava {
+    float: left;
+    margin-top: 30px;
+    padding-right: 6px;
+}
+.clear {
+    clear: both;
+}
+h2 {
+  padding: 3px;
+}
+html{
+  background-color: rgb(94, 94, 94);
+}
+
+h1 {
+  float:left;
+  margin-left: 70px;
+  margin-top: 40px;
+}
