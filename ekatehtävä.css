@@ -69,12 +69,13 @@ body{
 }
 
 footer{
+    width:100%;
     background-color: rgb(53, 52, 59);
     height: 70px;
     margin-top: 50px;
     padding-top: 25px;
     text-align: center;
-    border: 700px;
+    width:100%;
     
 }
 #syke {
@@ -96,4 +97,29 @@ h1 {
   float:left;
   margin-left: 70px;
   margin-top: 40px;
+}
+#sydan {
+  width: 40px;
+  height: 40px;
+  position: relative;
+  top:20px;
+  left: 600px
+
+}
+
+form {
+  position: absolute;
+  align-items: center;
+  margin-left: 10px;
+  margin-bottom: 30px;
+  background-color: beige;
+
+
+}
+
+#paivakirja > p{
+  position: absolute;
+  align-items : right;
+  
+
 }
