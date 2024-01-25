@@ -27,8 +27,12 @@ form.addEventListener('submit',  function(evt){
 });
 
 
-let bmi = (weight / ((height * height) / 10000)).toFixed(1);
+ let bmi = (weight / ((height * height) / 10000)).toFixed(1);
 console.log(bmi)
+
+
+
+
 
 
 
