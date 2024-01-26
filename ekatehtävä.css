@@ -123,3 +123,10 @@ form {
   
 
 }
+
+.informaatiota {
+  width: 25%;
+  float: right;
+  background-color: rgb(109, 108, 108);
+  margin-right: 40%;
+}

@@ -20,15 +20,19 @@ button.addEventListener("click", function(evt){
 
     if (bmi_num<= 18.5){
         analyysi.innerText = low_bmi
+        document.querySelector('.bmi0-19').classList.add('lowBmi')
+        
         
 
     }
     else if( bmi_num >= 18.6, bmi_num <= 25 ) {
         
         analyysi.innerText = normalBmi
+        document.querySelector('.bmi19-25').classList.add('normalBmi');
         
     }else {
          analyysi.innerText = highBmi
+         document.querySelector('.bmi25-40').classList.add('highBmi');
     }
         
     
@@ -37,6 +41,15 @@ button.addEventListener("click", function(evt){
     
     
 });
+
+
+const reset= document.querySelector("input")
+reset.addEventListener("click", function(evt){
+        document.querySelector(".bmi0-19", ".bmi25-30").classList.remove("lowBmi", "normalBmi","highBmi" )
+        document.querySelector(".bmi19-25").classList.remove("normalBmi")
+        document.querySelector(".bmi25-40").classList.remove("highBmi")
+});
+
 
 
 
