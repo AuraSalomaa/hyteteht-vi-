@@ -45,7 +45,7 @@ button.addEventListener("click", function(evt){
 
 const reset= document.querySelector("input")
 reset.addEventListener("click", function(evt){
-        document.querySelector(".bmi0-19", ".bmi25-30").classList.remove("lowBmi", "normalBmi","highBmi" )
+        document.querySelector(".bmi0-19", ".bmi25-30").classList.remove("lowBmi")
         document.querySelector(".bmi19-25").classList.remove("normalBmi")
         document.querySelector(".bmi25-40").classList.remove("highBmi")
 });
