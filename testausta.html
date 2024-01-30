@@ -1,0 +1,39 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body {
+  background-color: lightgreen;
+}
+h2 {
+    color: blueviolet;
+}
+
+@media  screen and (min-width: 600px) {
+  body {
+    background-color: rgb(221, 143, 26);
+  }
+  h2{
+    color: black;
+  }
+
+@media screen and (min-width: 500px) and (max-width: 700px){
+    #info{
+        background-color: rgb(255, 127, 244);
+    }
+}
+.laatikko {
+    width: 100px;
+    height: 100px;
+    background-color: blue;
+}
+}
+</style>
+</head>
+<body>
+<h2>OTsikko H2</h2>
+<p>Resize the browser window. When the width of this document is 600 pixels or less, the background-color is "lightblue", otherwise it is "lightgreen".</p>
+<p id = info>informaatiota</p>
+<div class = laatikko></div>
+</body>
+</html>
