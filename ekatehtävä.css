@@ -39,6 +39,7 @@
   }
  
 main {
+    max-width: 1200px;
     background-color: rgb(114, 114, 114);
     height: 500px;
     padding: 10px;
@@ -101,7 +102,7 @@ h1 {
 #sydan {
   width: 40px;
   height: 40px;
-  position: absolute;
+  position: fixed;
   top:20%;
   left: 83%;
 
@@ -118,7 +119,7 @@ form {
 }
 
 #paivakirja > p{
-  position: absolute;
+  position: fixed;
   align-items : right;
   
 
@@ -129,4 +130,36 @@ form {
   float: right;
   background-color: rgb(109, 108, 108);
   margin-right: 40%;
+}
+
+#taustakuva {
+  width: 100%;
+  height: 400px;
+  background-color: aliceblue;
+  background-image: url("pienikuva.jpg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+
+}
+
+/* herokuva tyylittely */
+
+#herokuva {
+  background-color: aquamarine;
+  height: 6vh;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+
+} @media screen and (max-width: 900px) {
+    #herokuva{
+      display: none; 
+
+    }
+    #sydan {
+      display: none;
+    }
+  
+  
 }
