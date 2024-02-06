@@ -2,10 +2,7 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
-body {
-  background-color: lightgreen;
-}
-h2 {
+/* h2 {
     color: blueviolet;
 }
 
@@ -26,14 +23,89 @@ h2 {
     width: 100px;
     height: 100px;
     background-color: blue;
+} */
+
+/* koko sivun taustakuva */
+
+
+html { 
+  background: url("free-nature-images.jpg") no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
+body {
+    background-color: grey;
 }
+
+
+
+
+    main {
+       padding: 20px;
+       margin: 60px;
+    
+    } 
+/* ilman media sääntöjä kuvan keskittäinen ja koon muuttaminen */
+    .kuva {
+        width: 100%;
+        min-width: 600px;
+        display: block;
+        margin: auto;
+    }
+/* mobile first ajattelu */
+
+    .kuva2 {
+        width: 100%;
+        }
+        @media screen and (min-width: 600px){
+            .kuva2 {
+            width: 600px;
+            display: block;
+            margin: auto;
+            }
+
+    
+        }
+        /* objecty fitin avulla */
+        @media screen and (min-width: 1200px) {
+        .kuva2{
+            /* visibility: hidden; */
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            background-color: antiquewhite;
+            }
+    
+        }
+        /* taustakuva fixed, kun browser pienempänä */
+        #taustakuva {
+            width: 100%;
+            height: 400px;
+            background-color: aliceblue;
+            background-image: url("pienikuva.jpg");
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: cover;
+            background-attachment: fixed;
+
+        }
 </style>
 </head>
-<body>
-<h2>OTsikko H2</h2>
-<p>Resize the browser window. When the width of this document is 600 pixels or less, the background-color is "lightblue", otherwise it is "lightgreen".</p>
+<main>
+    <body>
+    <h2>Normaali IMG- object fit ja mediasäännöt</h2>
+    <img class= "kuva2" src="free-nature-images.jpg" alt="" >
+    <h2>picture elementin käyttö</h2>
+    <div id = "taustakuva">
+        <p>ee</p>
+    </div>
+
+    
+<!-- <p>Resize the browser window. When the width of this document is 600 pixels or less, the background-color is "lightblue", otherwise it is "lightgreen".</p>
 <p id = info>informaatiota</p>
-<div class = laatikko></div>
-</body>
+<div class = laatikko></div> -->
+    </main>
+    </body>
 </html>
