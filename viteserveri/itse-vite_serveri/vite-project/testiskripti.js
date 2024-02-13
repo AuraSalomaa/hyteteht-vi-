@@ -27,6 +27,7 @@ async function asynchronousFunction2() {                 // asynchronous functio
         console.log('asynchronous load complete');
     }
 }
+
 // async function asynchronousFunction3() {                 // asynchronous function is defined by the async keyword
 //     console.log('asynchronous download begins');
 //     try {                                               // error handling: try/catch/finally
