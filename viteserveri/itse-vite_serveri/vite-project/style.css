@@ -94,3 +94,35 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+.card-area {
+  
+  
+  width: 350px;
+  height: 300px;
+  border-radius: 15px 50px 30px 5px;
+  
+}
+.card {
+  background-color: #888;
+  display: flex;
+  flex: 1;
+  justify-content: left;
+  align-items: left;
+}
+.card-img{
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+ 
+}
+
+.card-diary{
+  display: flex;
+  flex-direction: column;
+  flex: 2;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: center;
+  
+}
