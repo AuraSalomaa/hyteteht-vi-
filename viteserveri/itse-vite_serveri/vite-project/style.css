@@ -95,14 +95,9 @@ button:focus-visible {
   }
 }
 
-.card-area {
+
   
-  
-  width: 350px;
-  height: 300px;
-  border-radius: 15px 50px 30px 5px;
-  
-}
+
 .card {
   background-color: #888;
   display: flex;
