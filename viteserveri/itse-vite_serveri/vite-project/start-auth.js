@@ -63,9 +63,25 @@ loginUser.addEventListener('click', async (evt) => {
         body: JSON.stringify(body) // body data type must match "Content-Type" header
       };
       fetchData(url,options).then((data)=>{
+        // tee niin että tämä palauttaa BACKEND virheen
+        if (data.token == undefined){
+          alert("Username or password is incorrect")
+
+        }
+        else{
+          alert(data.message)
+          location.href = 'api-harjoituspohja.html'
+          const token = data.token
+          localStorage.setItem('name', data.user.username)
+          localStorage.setItem('token', token)
+          document.getElementById('loginResponse').innerText = token
+        }
+       
         console.log(data)
         console.log(data.token)
-        localStorage.setItem('token', data.token)
+        
+        
+        
   });
 });
 
@@ -89,6 +105,7 @@ meRequest.addEventListener('click', async () => {
   console.log(options);
   fetchData(url, options).then((data)=>{
     console.log(data)
+    
   })
 
 });

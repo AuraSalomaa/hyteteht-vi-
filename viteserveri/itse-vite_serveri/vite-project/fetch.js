@@ -13,7 +13,7 @@ const fetchData = async (url, options = {}) => {
       if (!response.ok) {
         throw new Error(`HTTP ${response.status} - ${response.statusText}`);
       }
-  
+  // ota selvää miten saat backendin virhe ilmoituksen tänne
       jsonData = await response.json();
     } catch (error) {
       console.error('fetchData() error', error);
