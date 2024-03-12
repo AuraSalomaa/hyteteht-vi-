@@ -3,15 +3,22 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vite App</title>
   </head>
-  <body>
-    <ul>
-      <li><a href="#home">Esimerkkisivusto</a></li>
-      <li><a href="#news">Tietoja</a></li>
-      <li style="float: right" class="active logout"><a href="">Logout</a></li>
-    </ul>
+  <div class="w3-top">
+    <div class="w3-bar w3-red w3-card w3-left-align w3-large">
+      <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+      <a href="template-html.html" class="w3-bar-item w3-button w3-padding-large w3-white">Home</a>
+      <a href="api-harjoituspohja.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Login</a>
+      <a href="startauth.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Register</a>
+      <a href="register.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Register</a>
+      <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Link 4</a>
+    </div>
 
     <!-- <div id="app"></div> -->
 
@@ -122,6 +129,17 @@
           <!-- tänne formi -->
           <!-- https://www.w3schools.com/css/css_form.asp -->
           <!-- https://www.w3schools.com/css/tryit.asp?filename=trycss_form_padding -->
+          <lable for="username">Username:</lable><br>
+          <input type ="text" id = "username" name = "username"><br>
+          <label for= "password">Password:</label><br>
+          <input type ="password" id = "password" name = "password"><br>
+          <label for= "email">Email:</label><br>
+          <input type ="email" id = "email" name = "email"><br>
+          <input type = "int" id = "id" name = "id"><br>
+          <button class ="update">Put</button>
+
+
+
 
           <!-- formin avulla testaamme create ja update user reittejä -->
         </form>

@@ -7,7 +7,7 @@ const createUser = document.querySelector('.createuser');
 createUser.addEventListener('click', async (evt) => {
   evt.preventDefault();
   console.log('Nyt luodaan käyttäjä');
-  const url = 'http://127.0.0.1:3000/api/users';
+  const url = 'https://hyte-server-aura.northeurope.cloudapp.azure.com/api/users';
   const form = document.querySelector('.create_user_form');
   
       // 
@@ -27,6 +27,7 @@ createUser.addEventListener('click', async (evt) => {
       };
       fetchData(url,options).then((data)=>{
         console.log(data)
+      location.href = 'startauth.html'
   });
 });
 
@@ -45,7 +46,7 @@ loginUser.addEventListener('click', async (evt) => {
   //   "username": "user",
   //   "password": "secret"
   // }
-  const url = 'http://127.0.0.1:3000/api/auth/login';
+  const url = 'https://hyte-server-aura.northeurope.cloudapp.azure.com/api/auth/login';
   const form = document.querySelector('.login_form');
   
       // 
@@ -92,7 +93,7 @@ meRequest.addEventListener('click', async () => {
   // # Get user info by token (requires token)
   // GET http://localhost:3000/api/auth/me
   // Authorization: Bearer (put-user-token-here)
-  const url = 'http://127.0.0.1:3000/api/auth/me';
+  const url = 'https://hyte-server-aura.northeurope.cloudapp.azure.com/api/auth/me';
   const token = localStorage.getItem('token')
   console.log(token)
   const options = {
