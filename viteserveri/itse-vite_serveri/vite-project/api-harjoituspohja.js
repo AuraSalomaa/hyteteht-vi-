@@ -1,35 +1,6 @@
 import './tyylit.css';
 import { fetchData } from './fetch.js';
 
-const bt1 = document.querySelector('.get_entry');
-bt1.addEventListener('click',async () => {
-    const url = "https://hyte-server-aura.northeurope.cloudapp.azure.com/api/entries"
-    const token  = localStorage.getItem('token')
-    const options = {
-    method: "GET", // *GET, POST, PUT, DELETE, etc.
-    headers: {
-    Authorization: 'Bearer: ' + token,
-    // 'Content-Type': 'application/x-www-form-urlencoded',
-  },
-}
-    fetchData(url,options).then((data) =>{
-      data.forEach((rivi)=>{
-        console.log(rivi.username, rivi.user_id, rivi.user_level)
-        const tr = document.createElement('tr');
-        const td1 = document.createElement('td');
-        const td2 = document.createElement('td')
-        const td3  = document.createElement('td')
-        const td4  = document.createElement('td')
-        const td5 = document.createElement('td')
-        td1.innerText = rivi.entry_id;
-        td2.innerText = rivi.a;
-        td5.innerText = w
-        // Käsitellään fetchData fynktiosta ullut JSON
-        
-    
-    })
-  });
-});
 
 
 const allButton = document.querySelector('.get_users');

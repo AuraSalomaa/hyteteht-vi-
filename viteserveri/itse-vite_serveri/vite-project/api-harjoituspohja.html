@@ -10,6 +10,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vite App</title>
   </head>
+<body>
+  
   <div class="w3-top">
     <div class="w3-bar w3-red w3-card w3-left-align w3-large">
       <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
@@ -19,7 +21,15 @@
       <a href="register.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Register</a>
       <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Link 4</a>
     </div>
-
+  
+    <!-- Navbar on small screens -->
+    <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
+      <a href="api-harjoituspohja.html" class="w3-bar-item w3-button w3-padding-large">Home</a>
+      <a href="start-auth.js" class="w3-bar-item w3-button w3-padding-large">Login</a>
+      <a href="register.html" class="w3-bar-item w3-button w3-padding-large">Register</a>
+      <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 4</a>
+    </div>
+  </div>
     <!-- <div id="app"></div> -->
 
     <div class="user">Hei kirjautunut käyttäjä: <span id="name">NIMI TÄHÄN</span>!</div>
@@ -65,25 +75,6 @@
 
     <div class="forms">
       <div style="flex: 1">
-        <h3>GET and DELETE</h3>
-
-        <p>
-          Hae käyttäjän tiedot painamalla alla olevaa nappia. Tämä hakee tiedot sekä luo taulukon
-          tbody osan. Jokaiselle riville luodaan nappula. Info hakee yksittäisen rivin tiedot ja
-          avaa dialogin. Delete poistaa yksittäisen rivin ja varmistaa tapahtuman confirm()
-          metodilla.
-        </p>
-
-        <pre><code>
-          # Get all users (requires token)
-          GET http://127.0.0.1:3000/api/users
-          
-          # Get user by id (requires token)
-          GET http://127.0.0.1:3000/api/users/:id
-          
-          # Delete user (requires token)
-          DELETE http://127.0.0.1:3000/api/users/:id
-          </code></pre>
 
         <table class="styled-table">
           <thead>
@@ -105,25 +96,6 @@
         <button class="get_users">Hae users tiedot</button>
       </div>
       <div style="flex: 1">
-        <h3>PUT and FORMS</h3>
-
-        <p>
-          Lisää ja päivitä käyttäjiä eli users tiedot formin avulla. Formi lisää uuden käyttäjän
-          nappulasta 'post'. Huomio, että PUT metodi toimii vain kirjatuneen käyttäjän osalta. Eli voit vain muokata käyttäjää, millä olet parhaimmillaan kirjautuneena. Jatkossa olisi fiksua hakea käyttäjän tiedot suoraan formien INPUT kenttiin.
-        </p>
-
-        <pre><code>
-          
-          # Update user's own data (requires token)
-          PUT http://127.0.0.1:3000/api/users/
-          content-type: application/json
-          
-          {
-            "username": "test-update4",
-            "password": "test-pw-update4",
-            "email": "update4@example.com"
-          }
-          </code></pre>
 
         <form class="addform">
           <!-- tänne formi -->
@@ -157,16 +129,16 @@
       <button autofocus>Close</button>
     </dialog>
 
-    <h3>Kotitehtävä, tee ja testaa kaikki: /api/entries</h3>
-
-    <p>Hae käyttäjän (user: 1) entires tiedot ja console.log</p>
-    <pre>
-      # Get entries by id
-      GET http://localhost:3000/api/entries/:id
-    </pre>
+    
     <button class="get_entry">Hae (user:1) entries</button>
+    <section class="card-area">
+      <!-- yksittäinen kortti -->
+      
+        <!-- vasen puoli jossa kuva -->
+       
+    </section>
 
     <script type="module" src="api-harjoituspohja.js"></script>
-
+    <script type="module" src="get_entries.js"></script>
   </body>
 </html>

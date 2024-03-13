@@ -31,14 +31,21 @@
         <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 4</a>
       </div>
     </div>
-      <div id="loginResponse"></div>
+    <div class="forms">
+      <form class="login_form">
+        <label for="username">Username</label>
+        <input type="text" name="username" placeholder="Username"/>
+        <label for="password">Password</label>
+        <input type="password" name="password" placeholder="Password"/>
+        <input name="submit" type="submit" value="Login" class="loginuser"/>
+      </div>
+
+
+      </form>
     </div>
     <h3>/api/auth - USER INFO</h3>
     <div>
-      <pre><code>
-        # Get user info by token (requires token)
-        GET https://hyte-server-aura.northeurope.cloudapp.azure.com/api/auth/me
-        Authorization: Bearer (put-user-token-here)</code></pre>
+      
       <button id="meRequest">Make an "authenticated" request</button>
       <br />
       <h5>USER INFO:</h5>
@@ -52,5 +59,5 @@
     </div>
   </body>
 
-  <script type="module" src="./start-auth.js"></script>
+  <script type="module" src="./login.js"></script>
 </html>
