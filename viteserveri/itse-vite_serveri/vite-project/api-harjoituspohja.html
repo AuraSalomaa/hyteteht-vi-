@@ -131,12 +131,54 @@
 
     
     <button class="get_entry">Hae (user:1) entries</button>
-    <section class="card-area">
+    <table> 
+      <tbody class="card-area">
       <!-- yksittäinen kortti -->
       
         <!-- vasen puoli jossa kuva -->
-       
-    </section>
+  
+      </tbody>
+  </table>
+
+
+    <form class="create_entry_form">
+      <label for="ID">ID(required)</label>
+      <input type="number" name="ID" placeholder="ID" required/>
+      <label for="Entry_date">entry_date(required)</label>
+      <input type="date" name="entry_date" placeholder="xxxx-xx-xx" required/>
+      <label for="mood">Current mood:(required)</label>
+      <input type="text" name="mood" placeholder="example: Happy" required/>
+      <label for="weight">Weight in kg (required):</label>
+      <input type="number" step="any" name="weight" placeholder="example: 80.2" required/>
+      <label for="sleep_hours">Hours slept(required):</label>
+      <input type="number" name="sleep_hours" placeholder="example: 8" required/>
+      <label for="notes">Current mood</label>
+      <input type="text" name="notes" placeholder="example: I had a great day and slept 9 hours"/>
+      
+      <input name="submit" type="submit" value="Post Diary entry" class="createEntry" />
+    </form>
+    <form class="updateEntry">
+      <label for="ID">ID(required)</label>
+      <input type="number" name="ID" placeholder="ID" required/>
+      <label for="Entry_date">entry_date(required)</label>
+      <input type="date" name="entry_date" placeholder="xxxx-xx-xx" required/>
+      <label for="mood">Current mood:(required)</label>
+      <input type="text" name="mood" placeholder="example: Happy" required/>
+      <label for="weight">Weight in kg (required):</label>
+      <input type="number" step="any" name="weight" placeholder="example: 80.2" required/>
+      <label for="sleep_hours">Hours slept(required):</label>
+      <input type="number" name="sleep_hours" placeholder="example: 8" required/>
+      <label for="notes">Current mood</label>
+      <input type="text" name="notes" placeholder="example: I had a great day and slept 9 hours"/>
+      
+      <input name="submit" type="submit" value="Update Diary entry" class="EntryUpdate" />
+    </form>
+    <!-- "user_id":"11",
+    "entry_date":"2024-03-13",
+    "mood": "sad",
+    "weight":"90.2",
+    "sleep_hours":"8",
+    "notes": "notes" -->
 
     <script type="module" src="api-harjoituspohja.js"></script>
     <script type="module" src="get_entries.js"></script>

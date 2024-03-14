@@ -111,84 +111,10 @@ function deleteUser(evt){
  }
  
 }
-
-// 1. testataan ensin YKSI endpoint joka ei vaadi tokenia
-// 2. uudelleen strukturoidaan koodi jotta se on modulaarisempi
-
-// tämä toimi ennen autentikaatiota, nyt tarvitsee tokenin, siistitään pian!
-// sivuille on nyt myös lisätty navigaatio html sivuun, sekä siihen sopiva CSS koodi, hae siis uusi HTML ja UUSI CSS ennen kun aloitat
-
-// async function getAllUsers() {
-//   console.log('toimii!');
-
-//   try {
-//     const response = await fetch('https://hyte-server-aura.northeurope.cloudapp.azure.com/api/users');
-//     console.log(response);
-//     const data = await response.json();
-//     console.log(data);
-
-//     data.forEach((element) => {
-//       console.log(element.username);
-//     });
-
-
-//     // tänne tiedot
-  //   const tbody = document.querySelector('.tbody');
-  //   tbody.innerHTML = '';
-
-  //   data.forEach((element) => {
-  //     console.log(element.username);
-
-  //     // Create table row element
-  //     var tr = document.createElement('tr');
-
-  //     // td1 Username
-  //     var td1 = document.createElement('td');
-  //     td1.innerText = element.username;
-
-  //     // td2
-  //     var td2 = document.createElement('td');
-  //     td2.innerText = element.user_level;
-
-  //     // td3
-  //     var td3 = document.createElement('td');
-  //     var button1 = document.createElement('button');
-  //     button1.className = 'check';
-  //     button1.setAttribute('data-id', '1');
-  //     button1.innerText = 'Info';
-  //     td3.appendChild(button1);
-
-  //     // td4
-  //     var td4 = document.createElement('td');
-  //     var button2 = document.createElement('button');
-  //     button2.className = 'del';
-  //     button2.setAttribute('data-id', '1');
-  //     button2.innerText = 'Delete';
-  //     td4.appendChild(button2);
-
-  //     // td5
-  //     var td5 = document.createElement('td');
-  //     td5.innerText = element.user_id;
-
-  //     // Append table data elements to the table row element
-  //     tr.appendChild(td1);
-  //     tr.appendChild(td2);
-  //     tr.appendChild(td3);
-  //     tr.appendChild(td4);
-  //     tr.appendChild(td5);
-
-  //     // Append the table row element to the table (assuming you have a table with the id 'myTable')
-  //     tbody.appendChild(tr);
-  //   });
-  // } catch (error) {
-  //   console.log(error);
-  // }
-// }
-const put = document.querySelector('.update')
+function UpdateData(evt){
+const put= document.querySelector('.update')
 put.addEventListener('click', async (evt) => {
   evt.preventDefault();
-  const test = evt.target.attributes['data_id'].value
-  console.log(test)
 
   console.log('nyt päivitetään tunnusta');
   // #update user info
@@ -226,17 +152,72 @@ put.addEventListener('click', async (evt) => {
 
           alert(data.message)
           console.log(data)
-          const token = data.token
-          localStorage.setItem('name', data.user.username)
-          localStorage.setItem('token', token)
-          document.getElementById('loginResponse').innerText = token
         })
        
-        console.log(data)
-        console.log(data.token)
+       
         
         
-        
-  });
+                
+});
+
+}
+UpdateData();
+
+function postEntry(evt){
 
 
+  const post = document.querySelector('.createEntry')
+  post.addEventListener('click', async (evt) => {
+    evt.preventDefault();
+  
+    console.log('lisätään Diary entry');
+    // #update user info
+    
+    // {
+    //   "username": "user",
+    const form = document.querySelector('.create_entry_form');
+    const token  = localStorage.getItem('token')
+    //   "password": "secret"
+    // const id = form.querySelector('input[name=id]').value
+    // }
+    const url = `https://hyte-server-aura.northeurope.cloudapp.azure.com/api/entries`;
+   
+    
+        // 
+        const body =  {
+          "user_id":form.querySelector('input[name=ID]').value, 
+          "entry_date": form.querySelector('input[name=entry_date]').value,
+          "mood": form.querySelector('input[name=mood]').value,
+          "weight": form.querySelector('input[name=weight]').value,
+          "sleep_hours": form.querySelector('input[name=sleep_hours]').value,
+          "notes": form.querySelector('input[name=notes]').value
+  //    <!-- "user_id":"11",
+//    "entry_date":"2024-03-13",
+//    "mood": "sad",
+//    "weight":"90.2",
+//    "sleep_hours":"8",
+//    "notes": "notes" -->
+        };
+        const options = {
+          method: "POST", // *GET, POST, PUT, DELETE, etc.
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: 'Bearer: ' + token,
+            // 'Content-Type': 'application/x-www-form-urlencoded',
+          },
+          body: JSON.stringify(body) // body data type must match "Content-Type" header
+        };
+        fetchData(url,options).then((data)=>{
+          // tee niin että tämä palauttaa BACKEND virheen
+          alert(data)
+            console.log(data)
+          })
+         
+    
+          
+          
+          
+    });
+  };
+
+postEntry();
