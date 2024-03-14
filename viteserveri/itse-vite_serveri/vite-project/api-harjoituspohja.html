@@ -158,6 +158,8 @@
       <input name="submit" type="submit" value="Post Diary entry" class="createEntry" />
     </form>
     <form class="updateEntry">
+      <lable for = "EntryID">EntryID(required)</lable>
+      <input type="number" name="EntryID" placeholder="Entry ID" required>
       <label for="ID">ID(required)</label>
       <input type="number" name="ID" placeholder="ID" required/>
       <label for="Entry_date">entry_date(required)</label>
@@ -168,7 +170,7 @@
       <input type="number" step="any" name="weight" placeholder="example: 80.2" required/>
       <label for="sleep_hours">Hours slept(required):</label>
       <input type="number" name="sleep_hours" placeholder="example: 8" required/>
-      <label for="notes">Current mood</label>
+      <label for="notes">Notes about the day</label>
       <input type="text" name="notes" placeholder="example: I had a great day and slept 9 hours"/>
       
       <input name="submit" type="submit" value="Update Diary entry" class="EntryUpdate" />

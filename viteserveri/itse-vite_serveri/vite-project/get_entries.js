@@ -29,14 +29,14 @@ const card = document.querySelector(".card-area");
     const td2 = document.createElement('td')
     const td4  = document.createElement('td')
     const td5 = document.createElement('td')
-    td1.innerText = [rivi][0].entry_date;
+    td1.innerText = rivi[0].entry_date;
     td2.innerText = rivi[1].entry_id;
-    td5.innerText = rivi[1].notes
+    td5.innerText = rivi[0].notes
     // td3.innerHTML = `<button class="check" data-id="${rivi.user_id}">Info</button>`
 
     const button2 = document.createElement('button')
     button2.className = 'del';
-    button2.setAttribute('data-id', [0][0].entry_id);
+    button2.setAttribute('data-id', rivi[0].entry_id);
     button2.innerText = 'Delete';
     td4.appendChild(button2);
     button2.addEventListener('click', deleteEntry)
@@ -79,7 +79,123 @@ function deleteEntry(evt){
  }
  
 }
+
+function postEntry(evt){
+
+
+    const post = document.querySelector('.createEntry')
+    post.addEventListener('click', async (evt) => {
+      evt.preventDefault();
     
+      console.log('lisätään Diary entry');
+      // #update user info
+      
+      // {
+      //   "username": "user",
+      const form = document.querySelector('.create_entry_form');
+      const token  = localStorage.getItem('token')
+      //   "password": "secret"
+      // const id = form.querySelector('input[name=id]').value
+      // }
+      const url = `https://hyte-server-aura.northeurope.cloudapp.azure.com/api/entries`;
+     
+      
+          // 
+          const body =  {
+            "user_id":form.querySelector('input[name=ID]').value, 
+            "entry_date": form.querySelector('input[name=entry_date]').value,
+            "mood": form.querySelector('input[name=mood]').value,
+            "weight": form.querySelector('input[name=weight]').value,
+            "sleep_hours": form.querySelector('input[name=sleep_hours]').value,
+            "notes": form.querySelector('input[name=notes]').value
+    //    <!-- "user_id":"11",
+  //    "entry_date":"2024-03-13",
+  //    "mood": "sad",
+  //    "weight":"90.2",
+  //    "sleep_hours":"8",
+  //    "notes": "notes" -->
+          };
+          const options = {
+            method: "POST", // *GET, POST, PUT, DELETE, etc.
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: 'Bearer: ' + token,
+              // 'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: JSON.stringify(body) // body data type must match "Content-Type" header
+          };
+          fetchData(url,options).then((data)=>{
+            // tee niin että tämä palauttaa BACKEND virheen
+            alert(data)
+              console.log(data)
+            })
+           
+      
+            
+            
+            
+      });
+    };
+  
+  postEntry();
+    
+
+
+
+  function UpdateEntry(evt){
+    const put= document.querySelector('.EntryUpdate')
+    put.addEventListener('click', async (evt) => {
+      evt.preventDefault();
+    
+      console.log('Päivitetään Diary entryä');
+      // #update user info
+      
+      // {
+      //   "username": "user",
+      const form = document.querySelector('.updateEntry');
+      const token  = localStorage.getItem('token')
+      //   "password": "secret"
+      const id = form.querySelector('input[name=EntryID]').value
+      // }
+      const url = `https://hyte-server-aura.northeurope.cloudapp.azure.com/api/entries/${id}`;
+     
+      
+          // 
+          const body =  {
+            "user_id":form.querySelector('input[name=ID]').value, 
+            "entry_date": form.querySelector('input[name=entry_date]').value,
+            "mood": form.querySelector('input[name=mood]').value,
+            "weight": form.querySelector('input[name=weight]').value,
+            "sleep_hours": form.querySelector('input[name=sleep_hours]').value,
+            "notes": form.querySelector('input[name=notes]').value
+    
+          };
+          const options = {
+            method: "PUT", // *GET, POST, PUT, DELETE, etc.
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: 'Bearer: ' + token,
+              // 'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: JSON.stringify(body) // body data type must match "Content-Type" header
+          };
+          fetchData(url,options).then((data)=>{
+            // tee niin että tämä palauttaa BACKEND virheen
+    
+            
+    
+              alert(data.message)
+              console.log(data)
+            })
+           
+           
+            
+            
+                    
+    });
+    
+    }
+    UpdateEntry();
 
 
 
