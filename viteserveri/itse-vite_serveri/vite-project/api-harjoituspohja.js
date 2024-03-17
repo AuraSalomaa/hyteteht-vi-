@@ -112,7 +112,7 @@ async function getUserID() {
   }
 }
 
-console.log("testiiiii", await getUserID());
+
 
   
 
