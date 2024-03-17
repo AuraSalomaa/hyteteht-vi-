@@ -84,7 +84,7 @@ async function showUserName () {
 showUserName();
 
 async function getUserID() {
-  const url = "https://hyte-server-aura.northeurope.cloudapp.azure.com/auth/me";
+  const url = "https://hyte-server-aura.northeurope.cloudapp.azure.com/api/auth/me";
   const token = localStorage.getItem("token");
 
   const options = {
@@ -112,41 +112,17 @@ async function getUserID() {
   }
 }
 
+console.log("testiiiii", await getUserID());
+
+  
 
 
 
 
 
 
-function deleteUser(){
 
-  const deleteButton = document.querySelector(".del")
-  deleteButton.addEventListener("click", async (evt)=>{
-  console.log("poistettu");
-  console.log(evt);
-  //tapa 1: haetaan arvo tutkimalla eventtiä
-  const id = getUserID()
-  //tapa 2: heaetaan "viereinen elementti
-  const url = `https://hyte-server-aura.northeurope.cloudapp.azure.coms/users/${id}`
-  const token  = localStorage.getItem('token')
-  const options = {
-   method: "DELETE", // *GET, POST, PUT, DELETE, etc.
-   headers: {
-     Authorization: 'Bearer: ' + token,
-     // 'Content-Type': 'application/x-www-form-urlencoded',
-   },
- }
- const answer  = confirm(`Oletko varma, että haluat poistaa käyttäjän ${id}`)
- if (answer){
-  fetchData(url, options).then((data)=>{
-    console.log(data)
-  })
- }
- 
-}
-)};
 
-deleteUser();
 function UpdateData(){
 
 const put= document.querySelector('.update')
@@ -185,10 +161,9 @@ put.addEventListener('click', async (evt) => {
       fetchData(url,options).then((data)=>{
         // tee niin että tämä palauttaa BACKEND virheen
 
-        
-
           alert(data.message)
           console.log(data)
+          location.href = 'index.html'
         })
        
        
@@ -199,6 +174,42 @@ put.addEventListener('click', async (evt) => {
 
 }
 UpdateData();
+
+async function deleteUser(){
+
+  const deleteButton = document.querySelector(".del")
+  deleteButton.addEventListener("click", async (evt) =>{
+    evt.preventDefault();
+    console.log("poistettu");
+    console.log(evt);
+    
+    let token  = localStorage.getItem('token')
+    
+    //tapa 1: haetaan arvo tutkimalla eventtiä
+      //tapa 2: heaetaan "viereinen elementti
+    const url = `https://hyte-server-aura.northeurope.cloudapp.azure.coms/api/users/${await getUserID()}`;
+    
+    const options = {
+     method: "DELETE", // *GET, POST, PUT, DELETE, etc.
+     headers: {
+       Authorization: 'Bearer: ' + token,
+       // 'Content-Type': 'application/x-www-form-urlencoded',
+     },
+   };
+   const answer  = confirm(`Oletko varma, että haluat poistaa käyttäjän ${await getUserID()}`)
+   if (answer){
+    fetchData(url, options).then((data)=>{
+      console.log(data)
+      
+    })
+   }
+   
+  
+  });
+  }
+  deleteUser();
+
+
 
 
 
