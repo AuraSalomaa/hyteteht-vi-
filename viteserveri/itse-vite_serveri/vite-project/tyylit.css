@@ -118,7 +118,7 @@
     );
     opacity: 0.75;
   }
-  .get
+  
   
   /* Navigaatiolista tyylittely */
   ul {
@@ -265,14 +265,14 @@ input[type=text], input[type=password],input[type=email]:valid{
     background-color: aliceblue;
   }
   
-  #loginResponse, #meResponse {
+  /* #loginResponse, #meResponse {
     font-family: 'Courier New', Courier, monospace;
     font-size: smaller;
     display: block;
     width: 100%;
     word-break:break-all;
   }
-  
+   */
     .create_user_form{
     background-color: #535bf2;
       

@@ -161,7 +161,7 @@ put.addEventListener('click', async (evt) => {
   const form = document.querySelector('.addform');
   const token  = localStorage.getItem('token')
   //   "password": "secret"
-  const id = getUserID();
+  const id = getUserID()
   // }
   const url = `https://hyte-server-aura.northeurope.cloudapp.azure.com/api/users/${id}`;
  
@@ -203,13 +203,9 @@ UpdateData();
 
 
 
-const clear = document.querySelector('.clearButton');
+const clear = document.querySelector('.clearButton')
 clear.addEventListener('click', clearLocalStorage);
-
-// Apufunktio, kirjoittaa halutin koodiblokin sisään halutun tekstin
-
-// Apufunktio, Tyhjennä local storage
-function clearLocalStorage() {
+async function clearLocalStorage() {
   localStorage.removeItem('token');
   alert("You have logged out")
   location.href = 'index.html'
