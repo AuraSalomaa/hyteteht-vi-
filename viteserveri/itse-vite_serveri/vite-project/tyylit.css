@@ -152,13 +152,17 @@
   .active {
     background-color: black;
   }
-  
-  /* Käyttäjä loggaantunut tyylittely */
-  .user {
+  .Nameplate{
+    display: flex;
+    
+  } .user {
     display: block;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
+    size: 34px;
+    
+    
   }
   #name {
     font-weight: bolder;
@@ -196,7 +200,7 @@
   }
   
   .styled-table tbody tr:last-of-type {
-    border-bottom: 2px solid #009879;
+    border-bottom: 2px solid red;
   }
   .styled-table tbody tr.active-row {
     font-weight: bold;
@@ -207,11 +211,20 @@
     background-color: #68535358;
     cursor: pointer;
   }
+  #test{
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    
+    
+
+  }
   .forms {
     display: flex; 
     gap: 30px;
     justify-content: center;
     align-items: center;
+    flex:1;
     
   }
   body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}

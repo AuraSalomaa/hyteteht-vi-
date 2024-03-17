@@ -16,19 +16,17 @@
     <div class="w3-top">
       <div class="w3-bar w3-red w3-card w3-left-align w3-large">
         <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
-        <a href="template-html.html" class="w3-bar-item w3-button w3-padding-large w3-white">Home</a>
+        <a href="index.html" class="w3-bar-item w3-button w3-padding-large w3-white">Home</a>
         <a href="api-harjoituspohja.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Login</a>
         <a href="startauth.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Register</a>
         <a href="register.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Register</a>
-        <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Link 4</a>
       </div>
     
       <!-- Navbar on small screens -->
       <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
-        <a href="api-harjoituspohja.html" class="w3-bar-item w3-button w3-padding-large">Home</a>
-        <a href="start-auth.js" class="w3-bar-item w3-button w3-padding-large">Login</a>
+        <a href="index.html" class="w3-bar-item w3-button w3-padding-large">Home</a>
+        <a href="startauth.html" class="w3-bar-item w3-button w3-padding-large">Login</a>
         <a href="register.html" class="w3-bar-item w3-button w3-padding-large">Register</a>
-        <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 4</a>
       </div>
     </div>
     <div class="forms">
@@ -43,21 +41,16 @@
 
       </form>
     </div>
-    <h3>/api/auth - USER INFO</h3>
-    <div>
-      
-      <button id="meRequest">Make an "authenticated" request</button>
-      <br />
-      <h5>USER INFO:</h5>
-      <div id="meResponse"></div>
-    </div>
-    <h3>Local Storage</h3>
-    <div>
-      <button id="clearButton">Clear localStorage</button>
-      <br />
-      <code id="clearResponse"></code>
-    </div>
+   
+   
   </body>
-
+  <script>function myFunction() {
+    const x = document.getElementById("navDemo");
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+  } else { 
+    x.className = x.className.replace(" w3-show", "");
+  }
+}</script>
   <script type="module" src="./login.js"></script>
 </html>

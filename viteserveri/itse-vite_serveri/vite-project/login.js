@@ -3,6 +3,7 @@ import { fetchData } from './fetch';
 const loginUser = document.querySelector('.loginuser');
 
 
+
 loginUser.addEventListener('click', async (evt) => {
   evt.preventDefault();
   console.log('Nyt logataan sisään');

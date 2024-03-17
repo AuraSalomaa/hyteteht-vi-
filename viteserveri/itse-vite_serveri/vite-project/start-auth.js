@@ -34,7 +34,7 @@ createUser.addEventListener('click', async (evt) => {
       else
       
       alert("User created")
-        location.href = 'template-html.html'
+        location.href = 'index.html'
   });
 });
 
@@ -46,16 +46,3 @@ createUser.addEventListener('click', async (evt) => {
 
 
 // Haetaan nappi josta tyhjennetään localStorage
-const clear = document.querySelector('#clearButton');
-clear.addEventListener('click', clearLocalStorage);
-
-// Apufunktio, kirjoittaa halutin koodiblokin sisään halutun tekstin
-function logResponse(codeblock, text) {
-  document.getElementById(codeblock).innerText = text;
-}
-
-// Apufunktio, Tyhjennä local storage
-function clearLocalStorage() {
-  localStorage.removeItem('token');
-  logResponse('clearResponse', 'localStorage cleared!');
-}

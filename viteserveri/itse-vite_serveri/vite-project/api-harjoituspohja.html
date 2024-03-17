@@ -8,72 +8,31 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
+    <title>Terveyspäiväkirja</title>
   </head>
 <body>
   
   <div class="w3-top">
     <div class="w3-bar w3-red w3-card w3-left-align w3-large">
       <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
-      <a href="template-html.html" class="w3-bar-item w3-button w3-padding-large w3-white">Home</a>
-      <a href="api-harjoituspohja.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Login</a>
-      <a href="startauth.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Register</a>
+      <a href="index.html" class="w3-bar-item w3-button w3-padding-large w3-white">Home</a>
+      <a href="startauth.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Login</a>
       <a href="register.html" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Register</a>
-      <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Link 4</a>
+      <a class="clearButton" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Logout</a>
     </div>
   
     <!-- Navbar on small screens -->
     <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
-      <a href="api-harjoituspohja.html" class="w3-bar-item w3-button w3-padding-large">Home</a>
+      <a href="index.html" class="w3-bar-item w3-button w3-padding-large">Home</a>
       <a href="start-auth.js" class="w3-bar-item w3-button w3-padding-large">Login</a>
       <a href="register.html" class="w3-bar-item w3-button w3-padding-large">Register</a>
-      <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 4</a>
+      <a class="clearButton" class="w3-bar-item w3-button w3-padding-large">Logout</a>
     </div>
   </div>
     <!-- <div id="app"></div> -->
 
-    <div class="user">Hei kirjautunut käyttäjä: <span id="name">NIMI TÄHÄN</span>!</div>
-
-    <h3>/api/users</h3>
-
-    <h3>Esimerkkitaulukko</h3>
-
-    <table class="styled-table">
-      <thead>
-        <tr>
-          <th>User Name</th>
-          <th>User Level</th>
-          <th>Info</th>
-          <th>Delete</th>
-          <th>ID</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Dom</td>
-          <td>6000</td>
-          <td><button class="check" data-id="1">Info</button></td>
-          <td><button class="del" data-id="1">Delete</button></td>
-          <td>1</td>
-        </tr>
-        <!--  <tr class="active-row"> -->
-        <tr>
-          <td>Melissa</td>
-          <td>5150</td>
-          <td><button class="check" data-id="2">Info</button></td>
-          <td><button class="del" data-id="2">Delete</button></td>
-          <td>2</td>
-        </tr>
-        <!-- and so on... -->
-        <!-- Delete nappula poistaa käyttäjän-->
-        <!-- käytämme tässä apuna data-attribuutteja-->
-        <!-- # Delete user
-              DELETE http://127.0.0.1:3000/users/:id
-        -->
-      </tbody>
-    </table>
-
-    <div class="forms">
+   
+    <!-- <div class="forms">
       <div style="flex: 1">
 
         <table class="styled-table">
@@ -87,16 +46,16 @@
             </tr>
           </thead>
           <tbody class="tbody">
-            <!-- tänne haetaan kaikki käyttäjät -->
-            <!-- # Get all users -->
-            <!-- GET http://127.0.0.1:3000/api/users -->
+     
           </tbody>
-        </table>
+        </table> -->
 
-        <button class="get_users">Hae users tiedot</button>
-      </div>
-      <div style="flex: 1">
-
+  
+       
+<div id = "test">
+      
+    <div class="user"><h3>Hei kirjautunut käyttäjä: <span id="name">NIMI TÄHÄN</span></h3></div>
+      <h4>Tilin muokkaus</h4>
         <form class="addform">
           <!-- tänne formi -->
           <!-- https://www.w3schools.com/css/css_form.asp -->
@@ -108,16 +67,15 @@
           <label for= "email">Email:</label><br>
           <input type ="email" id = "email" name = "email"><br>
           <input type = "int" id = "id" name = "id"><br>
-          <button class ="update">Put</button>
+          <button class ="update">Muokkaa tiliäsi</button>
+          <button class="del">Poista käyttäjätilisi</button>
+          
 
 
 
 
           <!-- formin avulla testaamme create ja update user reittejä -->
         </form>
-      </div>
-    </div>
-
     <dialog class="info_dialog">
       <p>
         <!-- tänne haetaan yksittäinen valittu käyttäjät -->      
@@ -130,8 +88,8 @@
     </dialog>
 
     
-    <button class="get_entry">Hae (user:1) entries</button>
-    <table> 
+    
+    <table class="styled-table"> 
       <tbody class="card-area">
       <!-- yksittäinen kortti -->
       
@@ -139,8 +97,10 @@
   
       </tbody>
   </table>
+  <h4>Päiväkirjamerkinnät</h4>
+  <button class="get_entry">Hae (user:1) entries</button>
 
-
+    <h4>päiväkirjamerkinnän luominen:</h4>
     <form class="create_entry_form">
       <label for="ID">ID(required)</label>
       <input type="number" name="ID" placeholder="ID" required/>
@@ -157,6 +117,7 @@
       
       <input name="submit" type="submit" value="Post Diary entry" class="createEntry" />
     </form>
+    <h4>Päiväkirjamerkinnän päivitys:</h4>
     <form class="updateEntry">
       <lable for = "EntryID">EntryID(required)</lable>
       <input type="number" name="EntryID" placeholder="Entry ID" required>
@@ -175,13 +136,25 @@
       
       <input name="submit" type="submit" value="Update Diary entry" class="EntryUpdate" />
     </form>
+
+    
+</div>
     <!-- "user_id":"11",
     "entry_date":"2024-03-13",
     "mood": "sad",
     "weight":"90.2",
     "sleep_hours":"8",
     "notes": "notes" -->
-
+    <script>
+    function myFunction() {
+      const x = document.getElementById("navDemo");
+    if (x.className.indexOf("w3-show") == -1) {
+      x.className += " w3-show";
+    } else { 
+      x.className = x.className.replace(" w3-show", "");
+    }
+  }
+  </script>
     <script type="module" src="api-harjoituspohja.js"></script>
     <script type="module" src="get_entries.js"></script>
   </body>

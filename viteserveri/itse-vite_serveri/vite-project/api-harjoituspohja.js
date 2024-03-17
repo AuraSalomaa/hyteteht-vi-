@@ -3,65 +3,65 @@ import { fetchData } from './fetch.js';
 
 
 
-const allButton = document.querySelector('.get_users');
-allButton.addEventListener('click', getUsers);
-async function getUsers(){
- const url = "https://hyte-server-aura.northeurope.cloudapp.azure.com/api/users"
- const token  = localStorage.getItem('token')
- const options = {
-  method: "GET", // *GET, POST, PUT, DELETE, etc.
-  headers: {
-    Authorization: 'Bearer: ' + token,
-    // 'Content-Type': 'application/x-www-form-urlencoded',
-  },
-}
-fetchData(url, options).then((data)=>{
-  createTable(data);
-})
+// const allButton = document.querySelector('.get_users');
+// allButton.addEventListener('click', getUsers);
+// async function getUsers(){
+//  const url = "https://hyte-server-aura.northeurope.cloudapp.azure.com/api/users"
+//  const token  = localStorage.getItem('token')
+//  const options = {
+//   method: "GET", // *GET, POST, PUT, DELETE, etc.
+//   headers: {
+//     Authorization: 'Bearer: ' + token,
+//     // 'Content-Type': 'application/x-www-form-urlencoded',
+//   },
+// }
+// fetchData(url, options).then((data)=>{
+//   createTable(data);
+// })
 
-}
-function createTable(data){
-  console.log(data);
-const tbody = document.querySelector(".tbody");
-tbody.innerHTML = ''
-  data.forEach((rivi)=>{
-    console.log(rivi.username, rivi.user_id, rivi.user_level)
-    const tr = document.createElement('tr');
-    const td1 = document.createElement('td');
-    const td2 = document.createElement('td')
-    const td3  = document.createElement('td')
-    const td4  = document.createElement('td')
-    const td5 = document.createElement('td')
-    td1.innerText = rivi.username;
-    td2.innerText = rivi.user_level;
-    td5.innerText = rivi.user_id
-    // td3.innerHTML = `<button class="check" data-id="${rivi.user_id}">Info</button>`
-    const button1 = document.createElement('button')
-    button1.className = 'check';
-    button1.setAttribute('data-id', rivi.user_id);
-    button1.innerText = 'Info';
-    td3.appendChild(button1);
-    button1.addEventListener('click',  getUsers);
+// }
+// function createTable(data){
+//   console.log(data);
+// const tbody = document.querySelector(".tbody");
+// tbody.innerHTML = ''
+//   data.forEach((rivi)=>{
+//     console.log(rivi.username, rivi.user_id, rivi.user_level)
+//     const tr = document.createElement('tr');
+//     const td1 = document.createElement('td');
+//     const td2 = document.createElement('td')
+//     const td3  = document.createElement('td')
+//     const td4  = document.createElement('td')
+//     const td5 = document.createElement('td')
+//     td1.innerText = rivi.username;
+//     td2.innerText = rivi.user_level;
+//     td5.innerText = rivi.user_id
+//     // td3.innerHTML = `<button class="check" data-id="${rivi.user_id}">Info</button>`
+//     const button1 = document.createElement('button')
+//     button1.className = 'check';
+//     button1.setAttribute('data-id', rivi.user_id);
+//     button1.innerText = 'Info';
+//     td3.appendChild(button1);
+//     button1.addEventListener('click',  getUsers);
 
-    const button2 = document.createElement('button')
-    button2.className = 'del';
-    button2.setAttribute('data-id', rivi.user_id);
-    button2.innerText = 'Delete';
-    td4.appendChild(button2);
-    button2.addEventListener('click', deleteUser)
+//     const button2 = document.createElement('button')
+//     button2.className = 'del';
+//     button2.setAttribute('data-id', rivi.user_id);
+//     button2.innerText = 'Delete';
+//     td4.appendChild(button2);
+//     button2.addEventListener('click', deleteUser)
     
     
-    tr.appendChild(td1)
-    tr.appendChild(td2)
-    tr.appendChild(td3)
-    tr.appendChild(td4)
-    tr.appendChild(td5)
-    tbody.appendChild(tr)
+//     tr.appendChild(td1)
+//     tr.appendChild(td2)
+//     tr.appendChild(td3)
+//     tr.appendChild(td4)
+//     tr.appendChild(td5)
+//     tbody.appendChild(tr)
     
     
 
-  });
-}
+//   });
+// }
 async function showUserName () {
   // let name = localStorage.getItem('name')
   // console.log("käyttäjän nimi tähän")
@@ -83,17 +83,50 @@ async function showUserName () {
 }
 showUserName();
 
+async function getUserID() {
+  const url = "https://hyte-server-aura.northeurope.cloudapp.azure.com/auth/me";
+  const token = localStorage.getItem("token");
+
+  const options = {
+    method: "GET",
+    headers: {
+      Authorization: "Bearer " + token,
+    },
+  };
+
+  try {
+    const response = await fetch(url, options);
+    if (!response.ok) {
+      throw new Error("Failed to fetch user data. Status: " + response.status);
+    }
+
+    const data = await response.json();
+    if (!data.user || !data.user.user_id) {
+      throw new Error("Invalid response format. User ID not found.");
+    }
+
+    return data.user.user_id;
+  } catch (error) {
+    console.error("Error fetching user ID:", error.message);
+    return null; // Return null if an error occurs
+  }
+}
 
 
-function deleteUser(evt){
+
+
+
+
+
+function deleteUser(){
+
+  const deleteButton = document.querySelector(".del")
+  deleteButton.addEventListener("click", async (evt)=>{
   console.log("poistettu");
   console.log(evt);
   //tapa 1: haetaan arvo tutkimalla eventtiä
-  const id = evt.target.attributes['data-id'].value
-  console.log(id)
+  const id = getUserID()
   //tapa 2: heaetaan "viereinen elementti
-  const id2 = evt.target.parentElement.nextElementSibling.textContent;
-  console.log("tapa 2: ", id2)
   const url = `https://hyte-server-aura.northeurope.cloudapp.azure.coms/users/${id}`
   const token  = localStorage.getItem('token')
   const options = {
@@ -111,7 +144,11 @@ function deleteUser(evt){
  }
  
 }
-function UpdateData(evt){
+)};
+
+deleteUser();
+function UpdateData(){
+
 const put= document.querySelector('.update')
 put.addEventListener('click', async (evt) => {
   evt.preventDefault();
@@ -124,7 +161,7 @@ put.addEventListener('click', async (evt) => {
   const form = document.querySelector('.addform');
   const token  = localStorage.getItem('token')
   //   "password": "secret"
-  const id = form.querySelector('input[name=id]').value
+  const id = getUserID();
   // }
   const url = `https://hyte-server-aura.northeurope.cloudapp.azure.com/api/users/${id}`;
  
@@ -162,4 +199,19 @@ put.addEventListener('click', async (evt) => {
 
 }
 UpdateData();
+
+
+
+
+const clear = document.querySelector('.clearButton');
+clear.addEventListener('click', clearLocalStorage);
+
+// Apufunktio, kirjoittaa halutin koodiblokin sisään halutun tekstin
+
+// Apufunktio, Tyhjennä local storage
+function clearLocalStorage() {
+  localStorage.removeItem('token');
+  alert("You have logged out")
+  location.href = 'index.html'
+}
 
